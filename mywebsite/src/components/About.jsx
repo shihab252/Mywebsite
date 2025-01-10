@@ -20,7 +20,6 @@ const About = () => {
     const experiences = [
         { title: 'Full-Stack Developer', duration: '2020 - Present', description: 'Developed full-stack applications using the MERN stack, including food ordering and job portal projects.' },
         { title: 'Bug Bounty Hunter', duration: '2019 - Present', description: 'Uncovered and secured vulnerabilities on Bugcrowd, contributing to a safer online ecosystem.' },
-        { title: 'Intern at TechCorp', duration: '2018 - 2019', description: 'Assisted in building scalable web applications and collaborated with cross-functional teams.' },
     ];
 
     return (
