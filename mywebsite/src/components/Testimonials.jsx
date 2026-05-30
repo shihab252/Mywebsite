@@ -1,189 +1,216 @@
-import React, { useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import React from "react";
+import { motion } from "framer-motion";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
+import {
+  Shield,
+  Code2,
+  Terminal,
+  Bug,
+  Globe,
+  Database,
+} from "lucide-react";
 
-// Import required modules
-import { Autoplay, Pagination } from "swiper/modules";
-import { Quote, Star } from "lucide-react";
-
-const Testimonials = () => {
-  // Default testimonials
-  const [testimonials, setTestimonials] = useState([
+const Expertise = () => {
+  const cards = [
     {
-      id: 1,
-      name: "Emily Johnson",
-      rating: 5,
-      text: "The service was exceptional! The team went above and beyond to meet our expectations. I couldn't be happier with the results and would highly recommend them to anyone.",
+      title: "Web Security",
+      icon: <Shield size={28} />,
+      desc: "Exploring vulnerabilities, secure coding practices and offensive security methodologies for modern web applications.",
+      color: "from-cyan-500 to-blue-500",
     },
-    {
-      id: 2,
-      name: "Michael Chen",
-      rating: 4,
-      text: "Great experience overall! The attention to detail was impressive, and the final product was delivered on time. There’s always room for improvement, but I’m very satisfied.",
-    },
-    {
-      id: 3,
-      name: "Sarah Thompson",
-      rating: 5,
-      text: "Absolutely outstanding! Their professionalism, expertise, and dedication to quality are unmatched. This was by far the best experience I’ve had with any company in this field.",
-    },
-    {
-      id: 4,
-      name: "David Rodriguez",
-      rating: 5,
-      text: "I’m beyond impressed with the level of care and effort they put into their work. The communication was seamless, and they delivered exactly what I envisioned. Highly recommended!",
-    },
-    {
-      id: 5,
-      name: "Lisa Patel",
-      rating: 4,
-      text: "The team was great to work with and very responsive to our needs. The project turned out well, though there were minor delays. Still, I would definitely work with them again.",
-    },
-  ]);
 
-  // Form state
-  const [formData, setFormData] = useState({
-    name: "",
-    rating: 5,
-    text: "",
-  });
+    {
+      title: "Full Stack Development",
+      icon: <Code2 size={28} />,
+      desc: "Building scalable MERN stack applications with modern architecture, optimized performance and responsive interfaces.",
+      color: "from-purple-500 to-pink-500",
+    },
 
-  // Handle form input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    {
+      title: "CTF Challenges",
+      icon: <Terminal size={28} />,
+      desc: "Practicing enumeration, exploitation and analytical problem solving through cybersecurity competitions.",
+      color: "from-orange-500 to-red-500",
+    },
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.text) {
-      alert("Please fill out all fields!");
-      return;
-    }
-    // Add new testimonial
-    setTestimonials([
-      ...testimonials,
-      { ...formData, id: testimonials.length + 1, rating: parseInt(formData.rating) },
-    ]);
-    // Reset form
-    setFormData({ name: "", rating: 5, text: "" });
-  };
+    {
+      title: "Bug Bounty Research",
+      icon: <Bug size={28} />,
+      desc: "Investigating real-world application flaws and researching security weaknesses responsibly.",
+      color: "from-emerald-500 to-green-500",
+    },
+
+    {
+      title: "Modern UI/UX",
+      icon: <Globe size={28} />,
+      desc: "Designing immersive user experiences with premium animations, smooth interactions and clean interfaces.",
+      color: "from-pink-500 to-rose-500",
+    },
+
+    {
+      title: "Backend Systems",
+      icon: <Database size={28} />,
+      desc: "Developing APIs, authentication systems and scalable backend infrastructures for modern platforms.",
+      color: "from-sky-500 to-cyan-500",
+    },
+  ];
 
   return (
-    <div id="testimonials" className="py-10 bg-gray-100 relative">
-      <h1 className="text-center text-2xl lg:text-4xl font-bold">
-        What Our Customers Say
-      </h1>
+    <section
+      id="expertise"
+      className="relative overflow-hidden bg-[#050816] text-white py-32"
+    >
+      {/* ================= BACKGROUND EFFECTS ================= */}
 
-      <div className="max-w-6xl mx-auto py-10 px-5">
-        {/* Swiper Section */}
-        <Swiper
-          style={{
-            "--swiper-pagination-color": "#EF4444",
-            "--swiper-pagination-bullet-inactive-color": "#999999",
-            "--swiper-pagination-bullet-inactive-opacity": "1",
-            "--swiper-pagination-bullet-size": "10px",
-            "--swiper-pagination-bullet-horizontal-gap": "6px",
-          }}
-          modules={[Pagination, Autoplay]}
-          loop={true}
-          speed={600}
-          autoplay={{ delay: 5000 }}
-          slidesPerView={3}
-          spaceBetween={30}
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            480: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          pagination={{
-            el: ".swiper-pagination",
-            type: "bullets",
-            clickable: true,
-          }}
-          className="mySwiper"
+      {/* Glow Effects */}
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-cyan-500/10 blur-[140px] rounded-full"></div>
+
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-purple-500/10 blur-[140px] rounded-full"></div>
+
+      {/* Grid */}
+      <div className="absolute inset-0 opacity-[0.04]">
+        <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:45px_45px]"></div>
+      </div>
+
+      {/* ================= CONTENT ================= */}
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+        {/* ================= HEADER ================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center mb-24"
         >
-          {testimonials.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div
-                className="border border-gray-400 shadow-md shadow-red-500 rounded-lg flex flex-col p-4 h-64"
-                style={{ minHeight: "16rem" }}
-              >
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      fill={i < item.rating ? "#FFD700" : "#D1D5DB"} // Gold for filled stars, gray for empty stars
-                    />
-                  ))}
-                </div>
-                <p className="py-3 flex-grow">{item.text}</p>
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h3 className="font-semibold text-red-500 text-lg">
-                      {item.name}
-                    </h3>
-                    <p className="text-sm mt-1">Verified Customer</p>
-                  </div>
-                  <Quote className="text-red-400" />
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-          <div className="swiper-pagination my-10 gap-1 relative"></div>
-        </Swiper>
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-xl px-5 py-2 rounded-full mb-6">
+            <Shield size={16} className="text-cyan-400" />
 
-        {/* Form Section */}
-        <div className="mt-10 bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold mb-4">Share Your Experience</h2>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="border border-gray-300 p-3 rounded-lg"
-              required
-            />
-            <select
-              name="rating"
-              value={formData.rating}
-              onChange={handleChange}
-              className="border border-gray-300 p-3 rounded-lg"
+            <span className="text-sm uppercase tracking-[0.2em] text-gray-300">
+              Expertise
+            </span>
+          </div>
+
+          {/* Title */}
+          <h2 className="text-5xl md:text-7xl font-black leading-tight">
+            What I
+            <br />
+
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+              Work On
+            </span>
+          </h2>
+
+          {/* Description */}
+          <p className="text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mt-8">
+            Combining modern software engineering with cybersecurity knowledge
+            to build scalable, secure and high-performance digital experiences.
+          </p>
+        </motion.div>
+
+        {/* ================= CARDS GRID ================= */}
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+          {cards.map((card, index) => (
+            <motion.div
+              key={index}
+              initial={{
+                opacity: 0,
+                y: 40,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.1,
+              }}
+              viewport={{ once: true }}
+              whileHover={{
+                y: -10,
+                scale: 1.02,
+              }}
+              className="
+                group
+                relative
+                overflow-hidden
+                rounded-[32px]
+                border
+                border-white/10
+                bg-white/[0.03]
+                backdrop-blur-2xl
+                p-8
+              "
             >
-              <option value="5">5 Stars</option>
-              <option value="4">4 Stars</option>
-              <option value="3">3 Stars</option>
-              <option value="2">2 Stars</option>
-              <option value="1">1 Star</option>
-            </select>
-            <textarea
-              name="text"
-              placeholder="Your Testimonial"
-              value={formData.text}
-              onChange={handleChange}
-              className="border border-gray-300 p-3 rounded-lg"
-              rows="4"
-              required
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600"
-            >
-              Submit
-            </button>
-          </form>
+              {/* Hover Glow */}
+              <div
+                className={`
+                  absolute
+                  inset-0
+                  opacity-0
+                  group-hover:opacity-10
+                  transition-all
+                  duration-700
+                  bg-gradient-to-r
+                  ${card.color}
+                `}
+              ></div>
+
+              {/* Animated Border Glow */}
+              <div
+                className={`
+                  absolute
+                  bottom-0
+                  left-0
+                  h-[2px]
+                  w-0
+                  group-hover:w-full
+                  transition-all
+                  duration-700
+                  bg-gradient-to-r
+                  ${card.color}
+                `}
+              ></div>
+
+              {/* Card Content */}
+              <div className="relative z-10">
+
+                {/* Icon */}
+                <div
+                  className={`
+                    w-max
+                    p-4
+                    rounded-2xl
+                    mb-6
+                    bg-gradient-to-r
+                    ${card.color}
+                    shadow-xl
+                  `}
+                >
+                  {card.icon}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold mb-4">
+                  {card.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-400 leading-relaxed">
+                  {card.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Testimonials;
+export default Expertise;
